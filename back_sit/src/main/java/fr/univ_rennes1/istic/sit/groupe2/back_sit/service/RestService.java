@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestService {
 
     @RequestMapping("/missions")
-    public ResponseEntity<?> getmissions(){
+    public ResponseEntity<?> getMissions() {
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @RequestMapping("/positions")
+    public ResponseEntity<?> getPositions() {
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }
