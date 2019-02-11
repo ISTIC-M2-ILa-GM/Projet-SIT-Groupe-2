@@ -1,0 +1,31 @@
+@startuml
+allow_mixing
+hide empty members
+
+
+node Android {
+    component "AMQP" as androidAMQP
+}
+
+node Spring {
+    component "Spring DataMongo"
+    component "Spring Rest"
+    component "Spring AMQP" as springAMQP
+}
+
+node "Python Micro-Service" as pythonService {
+    component "dronekit.io" as dronekit
+    component "AMQP" as pythonAMQP
+}
+
+node "Message broker" as Broker
+
+node Drone
+
+Drone -- pythonService
+pythonAMQP == Broker
+Broker == androidAMQP
+Broker == springAMQP
+
+
+@enduml
