@@ -1,4 +1,4 @@
-package fr.univ_rennes1.istic.sit.groupe2.back_sit.model;
+package fr.univ_rennes1.istic.sit.groupe2.back_sit.models;
 
 import java.util.List;
 
