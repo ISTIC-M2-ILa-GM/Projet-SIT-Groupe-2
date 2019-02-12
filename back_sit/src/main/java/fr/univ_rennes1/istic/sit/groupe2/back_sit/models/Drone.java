@@ -6,13 +6,13 @@ import lombok.Setter;
 @Getter @Setter
 public class Drone {
 
-    private String id;
+    private long id;
 
     public Drone() {
 
     }
 
-    public Drone(String id) {
+    public Drone(long id) {
         this.id = id;
     }
 
