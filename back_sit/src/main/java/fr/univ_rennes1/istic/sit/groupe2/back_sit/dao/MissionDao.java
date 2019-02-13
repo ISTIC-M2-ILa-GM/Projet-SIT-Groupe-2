@@ -9,9 +9,9 @@ import java.time.Instant;
 
 public interface MissionDao extends MongoRepository<Mission,String> {
 
-    public Mission findByName(String name);
+    Mission findByName(String name);
 
-    public Mission findByStartDateAndAndEndDate(Instant startDate, Instant endDate);
+    Mission findByStartDateAndAndEndDate(Instant startDate, Instant endDate);
 
 
 }
