@@ -2,6 +2,7 @@ package fr.univ_rennes1.istic.sit.groupe2.back_sit.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.lang.Nullable;
 
 import java.time.Instant;
@@ -11,6 +12,7 @@ import java.util.List;
 @Setter
 public class Mission {
 
+    @Id
     private String id;
 
     private String name;
