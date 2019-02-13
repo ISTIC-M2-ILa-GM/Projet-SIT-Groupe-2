@@ -10,9 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/missions")
 public class RestService {
 
     @Autowired
@@ -20,18 +22,18 @@ public class RestService {
     @Autowired
     private PositionDao positionDao;
 
-    @RequestMapping("/missions")
+    @RequestMapping("/")
     public ResponseEntity<?> getMissions() {
         return new ResponseEntity<>(missionDao.findAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/missions", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public ResponseEntity<?> createMissions(@RequestBody Mission mission) {
         mission = missionDao.save(mission);
         return new ResponseEntity<>(mission, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/missions/{id}/start", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/{id}/start", method = RequestMethod.PATCH)
     public ResponseEntity<?> startMission(@PathVariable(value = "id") String id) {
 
         Mission mission = missionDao.findById(id)
@@ -42,7 +44,7 @@ public class RestService {
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/missions/{id}/stop", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/{id}/stop", method = RequestMethod.PATCH)
     public ResponseEntity<?> stopMission(@PathVariable(value = "id") String id) {
 
         Mission mission = missionDao.findById(id)
@@ -50,9 +52,11 @@ public class RestService {
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
-    @RequestMapping("/positions")
-    public ResponseEntity<?> getPositions() {
-        return new ResponseEntity<>(positionDao.findAll(), HttpStatus.OK);
+    @RequestMapping("/{id}/positions")
+    public ResponseEntity<?> getPositions(@PathVariable(value = "id") String id) {
+        Mission mission = missionDao.findById(id)
+                .orElseThrow(() -> new RuntimeException("mission not found"));
+        return new ResponseEntity<>(mission.getRoute(), HttpStatus.OK);
     }
 
     //FOR TESTING!!!!
@@ -60,6 +64,10 @@ public class RestService {
     public ResponseEntity<?> test() {
         Position pos = new Position("id" + Instant.now(), 0, 0);
         positionDao.save(pos);
+        List<Position> positions = new ArrayList<>();
+        positions.add(pos);
+        Mission mission = new Mission("id" + Instant.now(), positions, "missionName");
+        missionDao.save(mission);
         return new ResponseEntity<>(positionDao.findAll(), HttpStatus.OK);
     }
 }
