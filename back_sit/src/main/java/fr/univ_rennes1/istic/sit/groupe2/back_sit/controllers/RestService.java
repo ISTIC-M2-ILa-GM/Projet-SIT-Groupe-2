@@ -42,6 +42,14 @@ public class RestService {
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/missions/{id}/stop", method = RequestMethod.PATCH)
+    public ResponseEntity<?> stopMission(@PathVariable(value = "id") String id) {
+
+        Mission mission = missionDao.findById(id)
+                .orElseThrow(() -> new RuntimeException("mission not found"));
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
     @RequestMapping("/positions")
     public ResponseEntity<?> getPositions() {
         return new ResponseEntity<>(positionDao.findAll(), HttpStatus.OK);
