@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter@Setter
 public class Position {
 
-    private long id;
+    private String id;
     private float lat;
     private float lon;
 
@@ -15,7 +15,7 @@ public class Position {
 
     }
 
-    public Position(long id, float lat, float lon) {
+    public Position(String id, float lat, float lon) {
         this.id = id;
         this.lat = lat;
         this.lon = lon;
