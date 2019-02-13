@@ -22,12 +22,12 @@ public class RestService {
     @Autowired
     private PositionDao positionDao;
 
-    @RequestMapping("/")
+    @RequestMapping("")
     public ResponseEntity<?> getMissions() {
         return new ResponseEntity<>(missionDao.findAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<?> createMissions(@RequestBody Mission mission) {
         mission = missionDao.save(mission);
         return new ResponseEntity<>(mission, HttpStatus.OK);
