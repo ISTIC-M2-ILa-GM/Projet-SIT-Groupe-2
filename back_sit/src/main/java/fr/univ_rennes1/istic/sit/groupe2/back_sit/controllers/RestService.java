@@ -7,10 +7,7 @@ import fr.univ_rennes1.istic.sit.groupe2.back_sit.models.Position;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
 
@@ -26,6 +23,12 @@ public class RestService {
     @RequestMapping("/missions")
     public ResponseEntity<?> getMissions() {
         return new ResponseEntity<>(missionDao.findAll(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/missions", method = RequestMethod.POST)
+    public ResponseEntity<?> createMissions(@RequestBody Mission mission) {
+        mission = missionDao.save(mission);
+        return new ResponseEntity<>(mission, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/missions/{id}/start", method = RequestMethod.PATCH)
