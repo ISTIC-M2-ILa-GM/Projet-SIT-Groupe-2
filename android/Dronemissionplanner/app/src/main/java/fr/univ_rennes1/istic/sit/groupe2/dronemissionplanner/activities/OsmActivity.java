@@ -3,7 +3,7 @@ package fr.univ_rennes1.istic.sit.groupe2.dronemissionplanner.activities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import org.osmdroid.tileprovider.tilesource.ITileSource;
+import org.osmdroid.tileprovider.tilesource.OnlineTileSourceBase;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.tileprovider.tilesource.XYTileSource;
 import org.osmdroid.util.GeoPoint;
@@ -21,6 +21,13 @@ public class OsmActivity extends AppCompatActivity {
     private final GeoPoint RENNES = new GeoPoint(48.117266, -1.6777926);
     private Marker drone;
 
+    public static final OnlineTileSourceBase MAPQUESTOSM = new XYTileSource("MapquestOSM",
+            0, 18, 256, ".png", new String[] {
+            "http://otile1.mqcdn.com/tiles/1.0.0/map/",
+            "http://otile2.mqcdn.com/tiles/1.0.0/map/",
+            "http://otile3.mqcdn.com/tiles/1.0.0/map/",
+            "http://otile4.mqcdn.com/tiles/1.0.0/map/" });
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +38,7 @@ public class OsmActivity extends AppCompatActivity {
         mMapController.setCenter(RENNES);
 //        ITileSource tileSource = new XYTileSource ("tiles", 0,
 //                12, 256, ".png", new String[]{});
-        mMapView.setTileSource(TileSourceFactory.MAPNIK);
+        mMapView.setTileSource(MAPQUESTOSM);
     }
 
     /**
