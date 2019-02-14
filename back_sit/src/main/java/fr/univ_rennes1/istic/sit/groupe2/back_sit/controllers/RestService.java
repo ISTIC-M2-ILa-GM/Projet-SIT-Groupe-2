@@ -49,7 +49,11 @@ public class RestService {
 
         Mission mission = missionDao.findById(id)
                 .orElseThrow(() -> new RuntimeException("mission not found"));
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        mission.setEndDate(Instant.now());
+        mission = missionDao.save(mission);
+
+        // TODO : communiquer avec service python
+        return new ResponseEntity<>(mission, HttpStatus.OK);
     }
 
     @RequestMapping("/{id}/positions")
