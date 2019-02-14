@@ -1,15 +1,21 @@
 package fr.univ_rennes1.istic.sit.groupe2.dronemissionplanner.activities;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import org.osmdroid.tileprovider.tilesource.OnlineTileSourceBase;
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.tileprovider.tilesource.XYTileSource;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.PathOverlay;
+import org.osmdroid.views.overlay.Polyline;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import fr.univ_rennes1.istic.sit.groupe2.dronemissionplanner.R;
 
@@ -19,7 +25,13 @@ public class OsmActivity extends AppCompatActivity {
     private MapView mMapView;
     private MapController mMapController;
     private final GeoPoint RENNES = new GeoPoint(48.117266, -1.6777926);
+    private final GeoPoint ISTIC = new GeoPoint(48.1151495,-1.6383743);
+    private final GeoPoint GARE = new GeoPoint(48.1049525,-1.6723698);
+    private final GeoPoint STADE = new GeoPoint(48.1083243,-1.7077132);
+    private final GeoPoint PISCINE = new GeoPoint(48.1318028,-1.6520706);
     private Marker drone;
+    private Polyline line;
+    private List<Marker> markers = new LinkedList<>();
 
     public static final OnlineTileSourceBase MAPQUESTOSM = new XYTileSource("MapquestOSM",
             0, 18, 256, ".png", new String[] {
@@ -36,13 +48,17 @@ public class OsmActivity extends AppCompatActivity {
         mMapController = (MapController) mMapView.getController();
         mMapController.setZoom(13);
         mMapController.setCenter(RENNES);
-//        ITileSource tileSource = new XYTileSource ("tiles", 0,
-//                12, 256, ".png", new String[]{});
         mMapView.setTileSource(MAPQUESTOSM);
+
+        updateDronePosition(ISTIC);
+        addMarker(PISCINE);
+        addMarker(STADE);
+        addMarker(GARE);
+        showPath(markers);
     }
 
     /**
-     * Définit / met à jour la position du drone.
+     * Définit / update la position du drone.
      *
      * @param position du Marker
      */
@@ -67,7 +83,25 @@ public class OsmActivity extends AppCompatActivity {
         marker.setPosition(position);
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         mMapView.getOverlays().add(marker);
+        markers.add(marker);
         return marker;
+    }
+
+    public void showPath(List<Marker> markers) {
+        line = new Polyline();
+        List<GeoPoint> geoPoints = new LinkedList<>();
+        for (Marker marker : markers) {
+            geoPoints.add(marker.getPosition());
+        }
+        line.setPoints(geoPoints);
+        line.setOnClickListener(new Polyline.OnClickListener() {
+            @Override
+            public boolean onClick(Polyline polyline, MapView mapView, GeoPoint eventPos) {
+                Toast.makeText(mapView.getContext(), "polyline with " + polyline.getPoints().size() + "pts was tapped", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+        mMapView.getOverlayManager().add(line);
     }
 
     @Override
