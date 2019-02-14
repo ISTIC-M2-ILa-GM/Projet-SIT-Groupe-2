@@ -1,6 +1,7 @@
 package fr.univ_rennes1.istic.sit.groupe2.dronemissionplanner.activities;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -68,6 +69,8 @@ public class OsmActivity extends AppCompatActivity {
         } else {
             drone = addMarker(position);
             drone.setTitle("Drone");
+            Drawable icon = getResources().getDrawable(R.drawable.marker_drone_foreground);
+            drone.setIcon(icon);
             mMapView.getOverlays().add(drone);
         }
     }
@@ -82,6 +85,8 @@ public class OsmActivity extends AppCompatActivity {
         Marker marker = new Marker(mMapView);
         marker.setPosition(position);
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        Drawable icon = getResources().getDrawable(R.drawable.marker_foreground);
+        marker.setIcon(icon);
         mMapView.getOverlays().add(marker);
         markers.add(marker);
         return marker;
