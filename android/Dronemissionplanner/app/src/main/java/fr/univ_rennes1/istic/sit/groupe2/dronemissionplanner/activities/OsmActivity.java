@@ -1,9 +1,11 @@
 package fr.univ_rennes1.istic.sit.groupe2.dronemissionplanner.activities;
 
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import org.osmdroid.tileprovider.tilesource.OnlineTileSourceBase;
@@ -12,7 +14,6 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
-import org.osmdroid.views.overlay.PathOverlay;
 import org.osmdroid.views.overlay.Polyline;
 
 import java.util.LinkedList;
@@ -21,31 +22,31 @@ import java.util.List;
 import fr.univ_rennes1.istic.sit.groupe2.dronemissionplanner.R;
 
 
-public class OsmActivity extends AppCompatActivity {
+public class OsmActivity extends Fragment {
 
     private MapView mMapView;
     private MapController mMapController;
     private final GeoPoint RENNES = new GeoPoint(48.117266, -1.6777926);
-    private final GeoPoint ISTIC = new GeoPoint(48.1151495,-1.6383743);
-    private final GeoPoint GARE = new GeoPoint(48.1049525,-1.6723698);
-    private final GeoPoint STADE = new GeoPoint(48.1083243,-1.7077132);
-    private final GeoPoint PISCINE = new GeoPoint(48.1318028,-1.6520706);
+    private final GeoPoint ISTIC = new GeoPoint(48.1151495, -1.6383743);
+    private final GeoPoint GARE = new GeoPoint(48.1049525, -1.6723698);
+    private final GeoPoint STADE = new GeoPoint(48.1083243, -1.7077132);
+    private final GeoPoint PISCINE = new GeoPoint(48.1318028, -1.6520706);
     private Marker drone;
     private Polyline line;
     private List<Marker> markers = new LinkedList<>();
 
     public static final OnlineTileSourceBase MAPQUESTOSM = new XYTileSource("MapquestOSM",
-            0, 18, 256, ".png", new String[] {
+            0, 18, 256, ".png", new String[]{
             "http://otile1.mqcdn.com/tiles/1.0.0/map/",
             "http://otile2.mqcdn.com/tiles/1.0.0/map/",
             "http://otile3.mqcdn.com/tiles/1.0.0/map/",
-            "http://otile4.mqcdn.com/tiles/1.0.0/map/" });
+            "http://otile4.mqcdn.com/tiles/1.0.0/map/"});
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_osm);
-        mMapView = findViewById(R.id.mapview);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_osm, container, false);
+
+        mMapView = view.findViewById(R.id.mapview);
         mMapController = (MapController) mMapView.getController();
         mMapController.setZoom(13);
         mMapController.setCenter(RENNES);
@@ -56,6 +57,8 @@ public class OsmActivity extends AppCompatActivity {
         addMarker(STADE);
         addMarker(GARE);
         showPath(markers);
+
+        return view;
     }
 
     /**
