@@ -2,7 +2,7 @@
 
 ## Architecture logicielle
 
-![Diagramme de déploiement]()
+![Diagramme de déploiement UML](https://github.com/ISTIC-M2-ILa-GM/Projet-SIT-Groupe-2/raw/dev/spcecs/img/deploy.png)
 
 ## Composistion des équipes
 
