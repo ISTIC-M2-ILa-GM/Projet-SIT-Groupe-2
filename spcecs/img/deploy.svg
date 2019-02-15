@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="372px" preserveAspectRatio="none" style="width:631px;height:372px;" version="1.1" viewBox="0 0 631 372" width="631px" zoomAndPan="magnify"><defs><filter height="300%" id="f1mdalq9jmge93" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster Android--><polygon fill="#FFFFFF" filter="url(#f1mdalq9jmge93)" points="14,294,24,284,152,284,152,350,142,360,14,360,14,294" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="142" x2="151" y1="294" y2="285"/><line style="stroke: #000000; stroke-width: 1.5;" x1="14" x2="142" y1="294" y2="294"/><line style="stroke: #000000; stroke-width: 1.5;" x1="142" x2="142" y1="294" y2="360"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="62" x="48" y="309.9951">Android</text><!--cluster Spring--><polygon fill="#FFFFFF" filter="url(#f1mdalq9jmge93)" points="165,294,175,284,609,284,609,350,599,360,165,360,165,294" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="599" x2="608" y1="294" y2="285"/><line style="stroke: #000000; stroke-width: 1.5;" x1="165" x2="599" y1="294" y2="294"/><line style="stroke: #000000; stroke-width: 1.5;" x1="599" x2="599" y1="294" y2="360"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="51" x="357.5" y="309.9951">Spring</text><!--cluster pythonService--><polygon fill="#FFFFFF" filter="url(#f1mdalq9jmge93)" points="128,92,138,82,372,82,372,148,362,158,128,158,128,92" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="362" x2="371" y1="92" y2="83"/><line style="stroke: #000000; stroke-width: 1.5;" x1="128" x2="362" y1="92" y2="92"/><line style="stroke: #000000; stroke-width: 1.5;" x1="362" x2="362" y1="92" y2="158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="168" x="162" y="107.9951">Python Micro-Service</text><!--entity androidAMQP--><rect fill="#FEFECE" filter="url(#f1mdalq9jmge93)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="61" x="77.5" y="316"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="72.5" y="321"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="72.5" y="342.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="41" x="87.5" y="338.9951">AMQP</text><!--entity Spring DataMongo--><rect fill="#FEFECE" filter="url(#f1mdalq9jmge93)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="148" x="453" y="316"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="448" y="321"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="448" y="342.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="128" x="463" y="338.9951">Spring DataMongo</text><!--entity Spring Rest--><rect fill="#FEFECE" filter="url(#f1mdalq9jmge93)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="100" x="318" y="316"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="313" y="321"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="313" y="342.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="328" y="338.9951">Spring Rest</text><!--entity springAMQP--><rect fill="#FEFECE" filter="url(#f1mdalq9jmge93)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="173.5" y="316"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="168.5" y="321"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="168.5" y="342.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="89" x="183.5" y="338.9951">Spring AMQP</text><!--entity dronekit--><rect fill="#FEFECE" filter="url(#f1mdalq9jmge93)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="93" x="234.5" y="114"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="229.5" y="119"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="229.5" y="140.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="244.5" y="136.9951">dronekit.io</text><!--entity pythonAMQP--><rect fill="#FEFECE" filter="url(#f1mdalq9jmge93)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="61" x="137.5" y="114"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="132.5" y="119"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="132.5" y="140.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="41" x="147.5" y="136.9951">AMQP</text><!--entity Broker--><polygon fill="#FEFECE" filter="url(#f1mdalq9jmge93)" points="92,220,102,210,244,210,244,246.2969,234,256.2969,92,256.2969,92,220" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="234" x2="243" y1="220" y2="211"/><line style="stroke: #000000; stroke-width: 1.5;" x1="92" x2="234" y1="220" y2="220"/><line style="stroke: #000000; stroke-width: 1.5;" x1="234" x2="234" y1="220" y2="256.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="107" y="242.9951">Message broker</text><!--entity Drone--><polygon fill="#FEFECE" filter="url(#f1mdalq9jmge93)" points="321.5,18,331.5,8,404.5,8,404.5,44.2969,394.5,54.2969,321.5,54.2969,321.5,18" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="394.5" x2="403.5" y1="18" y2="9"/><line style="stroke: #000000; stroke-width: 1.5;" x1="321.5" x2="394.5" y1="18" y2="18"/><line style="stroke: #000000; stroke-width: 1.5;" x1="394.5" x2="394.5" y1="18" y2="54.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="336.5" y="40.9951">Drone</text><!--link Drone to pythonService--><path d="M363,54.1714 C363,61.1602 363,69.1482 363,77.2832 C363,78.3 363,79.3192 363,80.339 C363,80.8489 363,81.359 363,81.869 " fill="none" id="Drone-pythonService" style="stroke: #A80036; stroke-width: 1.0;"/><!--link pythonAMQP to Broker--><path d="M168,150.0568 C168,166.7385 168,191.6109 168,209.7672 " fill="none" id="pythonAMQP-Broker" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Broker to androidAMQP--><path d="M154.2348,256.1714 C143.4403,274.3422 128.6329,299.268 118.7117,315.9687 " fill="none" id="Broker-androidAMQP" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Broker to springAMQP--><path d="M181.7652,256.1714 C192.5597,274.3422 207.3671,299.268 217.2883,315.9687 " fill="none" id="Broker-springAMQP" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+allow_mixing
+hide empty members
+
+
+node Android {
+    component "AMQP" as androidAMQP
+}
+
+node Spring {
+    component "Spring DataMongo"
+    component "Spring Rest"
+    component "Spring AMQP" as springAMQP
+}
+
+node "Python Micro-Service" as pythonService {
+    component "dronekit.io" as dronekit
+    component "AMQP" as pythonAMQP
+}
+
+node "Message broker" as Broker
+
+node Drone
+
+Drone - - pythonService
+pythonAMQP == Broker
+Broker == androidAMQP
+Broker == springAMQP
+
+
+@enduml
+
+PlantUML version 1.2018.12(Sun Oct 21 12:15:15 CEST 2018)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.2+7-Debian-1
+Operating System: Linux
+OS Version: 4.19.0-1-amd64
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>
