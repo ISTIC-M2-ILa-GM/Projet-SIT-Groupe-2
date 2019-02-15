@@ -2,6 +2,7 @@ package fr.univ_rennes1.istic.sit.groupe2.dronemissionplanner.activities;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import java.util.List;
 import fr.univ_rennes1.istic.sit.groupe2.dronemissionplanner.R;
 
 
-public class OsmActivity extends Fragment {
+public class OsmFragment extends Fragment {
 
     private MapView mMapView;
     private MapController mMapController;
@@ -43,8 +44,8 @@ public class OsmActivity extends Fragment {
             "http://otile4.mqcdn.com/tiles/1.0.0/map/"});
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_osm, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_osm, container, false);
 
         mMapView = view.findViewById(R.id.mapview);
         mMapController = (MapController) mMapView.getController();
@@ -68,7 +69,9 @@ public class OsmActivity extends Fragment {
      */
     public void updateDronePosition(GeoPoint position) {
         if (drone != null) {
+            mMapView.getOverlays().remove(drone);
             drone.setPosition(position);
+            mMapView.getOverlays().add(drone);
         } else {
             drone = addMarker(position);
             drone.setTitle("Drone");
@@ -105,7 +108,7 @@ public class OsmActivity extends Fragment {
         line.setOnClickListener(new Polyline.OnClickListener() {
             @Override
             public boolean onClick(Polyline polyline, MapView mapView, GeoPoint eventPos) {
-                Toast.makeText(mapView.getContext(), "polyline with " + polyline.getPoints().size() + "pts was tapped", Toast.LENGTH_LONG).show();
+                Toast.makeText(mapView.getContext(), "La mission contient " + polyline.getPoints().size() + " points de passage", Toast.LENGTH_LONG).show();
                 return false;
             }
         });
